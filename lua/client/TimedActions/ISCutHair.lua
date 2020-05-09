@@ -32,8 +32,12 @@ function ISCutHair:perform()
 	if newHairStyle:isAttachedHair() and not self.character:getHumanVisual():getNonAttachedHair() then
 		self.character:getHumanVisual():setNonAttachedHair(self.character:getHumanVisual():getHairModel());
 	end
+	if newHairStyle:isAttachedHair() then -- can add "and not oldHairStyle:isAttachedHair()", but it seems that it is not necessary
+		self.character:getInventory():RemoveOneOf("Base.RubberBand");
+	end
 	if self.character:getHumanVisual():getNonAttachedHair() and not newHairStyle:isAttachedHair() then
 		self.character:getHumanVisual():setNonAttachedHair(nil);
+		self.character:getInventory():AddItem("Base.RubberBand");
 	end
 	self.character:getHumanVisual():setHairModel(self.hairStyle);
 	self.character:resetModel();

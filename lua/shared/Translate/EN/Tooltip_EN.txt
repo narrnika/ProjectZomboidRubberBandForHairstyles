@@ -209,6 +209,7 @@ Tooltip_EN = {
     Tooltip_ScratchDefense = "Scratch Defense",
     Tooltip_requireRazorOrScissors = "Require a Razor or Scissors";
     Tooltip_RequireScissors = "Require Scissors",
+    Tooltip_RequireRubberBand = "Require Rubber Band",
     Tooltip_RunSpeedModifier = "Run speed modifier",
     Tooltip_CombatSpeedModifier = "Combat speed modifier",
     Tooltip_NoBeard = "No beard, wait for it to grow.",

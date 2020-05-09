@@ -351,7 +351,10 @@ function ISCharacterScreen:hairMenu(button)
 			for i=0, hairList:size()-1 do
 				local hairStyle = hairList:get(i);
 				if hairStyle:getLevel() <= currentHairStyle:getLevel() and hairStyle:getName() ~= currentHairStyle:getName() and hairStyle:isAttachedHair() and hairStyle:getName() ~= "" then
-					hairMenu:addOption(getText("ContextMenu_TieHair", getText("IGUI_Hair_" .. hairStyle:getName())), player, ISCharacterScreen.onCutHair, hairStyle:getName(), 100);
+					local option = hairMenu:addOption(getText("ContextMenu_TieHair", getText("IGUI_Hair_" .. hairStyle:getName())), player, ISCharacterScreen.onCutHair, hairStyle:getName(), 100);
+					if not player:getInventory():containsTypeRecurse("RubberBand") then
+						self:addTooltip(option, getText("Tooltip_RequireRubberBand"));
+					end
 				end
 			end
 			
